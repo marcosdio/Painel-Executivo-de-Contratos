@@ -99,7 +99,7 @@ As medidas DAX foram organizadas em uma tabela exclusiva, facilitando manutenç�
 
 A figura abaixo apresenta a estrutura lógica do modelo analítico desenvolvido para consolidar as diferentes informações relacionadas à gestão contratual.
 
-![Modelagem do Modelo Analítico](screenshots/modelagem-contratos.png)
+![Modelagem do modelo analítico](screenshots/Captura%20de%20tela%202026-08-05%20234016.png)
 
 A modelagem foi construída priorizando a organização das entidades de negócio e seus relacionamentos, permitindo consolidar informações provenientes de diferentes controles em um único ambiente analítico.
 
