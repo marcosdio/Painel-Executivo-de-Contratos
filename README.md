@@ -4,7 +4,7 @@ Solução de Business Intelligence para acompanhamento da execução de contrato
 
 Uma solução de Business Intelligence desenvolvida para consolidar informações de contratos administrativos em um modelo analítico único, transformando dados dispersos em indicadores para apoio à tomada de decisão.
 
-Este repositório documenta a arquitetura, a modelagem e as decisões técnicas do projeto. O código-fonte não é disponibilizado.
+Este repositório documenta a arquitetura, a modelagem e as principais decisões técnicas do projeto. O código-fonte não é disponibilizado.
 
 ---
 
@@ -27,7 +27,7 @@ As principais atividades envolveram:
 - levantamento das regras de negócio junto às áreas responsáveis;
 - consolidação de diversas bases de dados;
 - definição da arquitetura do modelo analítico;
-- modelagem dimensional;
+- modelagem dos relacionamentos;
 - construção das transformações em Power Query;
 - desenvolvimento das medidas em DAX;
 - criação dos dashboards executivos e operacionais;
@@ -74,11 +74,13 @@ Toda a atualização do modelo foi desenhada para exigir o mínimo possível de 
 
 # Arquitetura dos dados
 
-O modelo foi estruturado tendo a tabela **BASE CONTRATOS** como entidade central, relacionando-se às demais tabelas de negócio.
+O modelo foi estruturado tendo a tabela **BASE CONTRATOS** como entidade central, responsável por concentrar as informações cadastrais dos contratos e estabelecer relacionamento com as demais entidades do processo.
+
+O objetivo foi representar o ciclo de vida da gestão contratual de forma integrada, permitindo consultas operacionais e análises gerenciais a partir de uma única base de dados.
 
 Principais componentes do modelo:
 
-- Base Contratos
+- Base Contratos (entidade central)
 - Dados Cadastrais
 - Pagamentos
 - Prazos
@@ -86,27 +88,31 @@ Principais componentes do modelo:
 - Prorrogações
 - Termos
 - Notificações
-- Calendário
-- Tabela de Medidas
+- Dimensão de Datas
+- Tipo de Movimentação
 
-As métricas foram centralizadas em uma tabela exclusiva de medidas, facilitando manutenção, organização e reutilização.
+As medidas DAX foram organizadas em uma tabela exclusiva, facilitando manutenção, reutilização e padronização dos indicadores utilizados pelos dashboards.
 
 ---
 
 # Modelagem
 
-![Modelagem do modelo analítico](screenshots/Captura%20de%20tela%202026-08-05%20234016.png)
+A figura abaixo apresenta a estrutura lógica do modelo analítico desenvolvido para consolidar as diferentes informações relacionadas à gestão contratual.
 
-A modelagem foi construída buscando reduzir redundâncias, preservar integridade dos dados e facilitar a criação de indicadores.
+![Modelagem do Modelo Analítico](screenshots/modelagem-contratos.png)
 
-Embora tenha sido desenvolvida antes do aprofundamento em modelagem dimensional realizado posteriormente durante meu MBA em Data Science e Analytics, muitos dos conceitos adotados permanecem válidos e serviram como base para projetos posteriores.
+A modelagem foi construída priorizando a organização das entidades de negócio e seus relacionamentos, permitindo consolidar informações provenientes de diferentes controles em um único ambiente analítico.
+
+Embora este projeto tenha sido desenvolvido antes do aprofundamento dos meus estudos em modelagem dimensional durante o MBA em Data Science e Analytics, ele representou um importante passo na minha evolução em Business Intelligence.
+
+Se fosse iniciado hoje, algumas decisões de modelagem seriam diferentes, especialmente na organização entre fatos e dimensões compartilhadas. Ainda assim, a estrutura adotada cumpriu plenamente seu objetivo de oferecer uma base consistente para análise da execução contratual e serviu como fundamento para projetos posteriores de maior complexidade.
 
 ---
 
 # Principais funcionalidades
 
 - Consolidação de múltiplas bases de dados.
-- Atualização automatizada do modelo.
+- Atualização simplificada do modelo analítico.
 - Indicadores executivos.
 - Consultas operacionais self-service.
 - Acompanhamento de prazos contratuais.
@@ -122,7 +128,7 @@ Embora tenha sido desenvolvida antes do aprofundamento em modelagem dimensional 
 - Power BI
 - Power Query (M)
 - DAX
-- Modelagem Dimensional
+- Modelagem de Dados
 - Excel
 - Business Intelligence
 
@@ -136,18 +142,21 @@ Além da melhoria operacional, o projeto criou uma base estruturada que permitiu
 
 ---
 
-# Lições aprendidas
+# Aprendizados Técnicos
 
-Este foi um dos projetos que consolidou minha transição da gestão financeira tradicional para uma atuação mais voltada à análise de dados.
+Este projeto marcou minha transição de um uso mais operacional do Power BI para uma abordagem baseada em modelagem de dados.
 
-O desenvolvimento dessa solução reforçou alguns princípios que continuam presentes nos meus projetos atuais:
+Foi a partir dele que aprofundei conceitos como:
 
-- antes de construir dashboards, é necessário organizar os dados;
-- um bom modelo analítico vale mais do que dezenas de gráficos;
-- tecnologia gera valor quando reduz trabalho manual e melhora a tomada de decisão;
-- compreender profundamente as regras de negócio é tão importante quanto dominar a ferramenta.
+- modelagem de dados;
+- organização de medidas DAX;
+- relacionamentos entre tabelas;
+- separação entre camada de dados e camada analítica;
+- construção de soluções self-service para apoio à decisão.
 
-Esses aprendizados serviram como base para projetos posteriores envolvendo automação de processos, desenvolvimento de aplicações e utilização de Inteligência Artificial aplicada à gestão pública.
+Grande parte desses aprendizados foi posteriormente aplicada em projetos de automação de processos e desenvolvimento de sistemas utilizando Python, Django e PostgreSQL.
+
+Hoje eu provavelmente faria algumas escolhas arquiteturais diferentes, especialmente na organização do modelo dimensional. Mantive essa versão documentada porque ela representa fielmente a evolução do projeto e demonstra como meu entendimento sobre modelagem de dados amadureceu ao longo do tempo.
 
 ---
 
@@ -155,4 +164,4 @@ Esses aprendizados serviram como base para projetos posteriores envolvendo autom
 
 O dashboard público pode ser acessado em:
 
-**https://app.powerbi.com/view?r=eyJrIjoiYzYxNDdjMWUtOWJjNC00YmY0LWI5MmUtMjA5MjAzOGVhNTE3IiwidCI6IjNhNzhiMGNkLTdjOGUtNDkyOS04M2Q1LTE5MGE2Y2MwMTM2NSJ9**
+https://app.powerbi.com/view?r=eyJrIjoiYzYxNDdjMWUtOWJjNC00YmY0LWI5MmUtMjA5MjAzOGVhNTE3IiwidCI6IjNhNzhiMGNkLTdjOGUtNDkyOS04M2Q1LTE5MGE2Y2MwMTM2NSJ9
