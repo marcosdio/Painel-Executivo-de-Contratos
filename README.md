@@ -95,7 +95,7 @@ As métricas foram centralizadas em uma tabela exclusiva de medidas, facilitando
 
 # Modelagem
 
-> Inserir aqui a imagem da modelagem do Power BI.
+![Modelagem do modelo analítico](screenshots/Captura%20de%20tela%202026-08-05%20234016.png)
 
 A modelagem foi construída buscando reduzir redundâncias, preservar integridade dos dados e facilitar a criação de indicadores.
 
